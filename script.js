@@ -1,3 +1,41 @@
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+
+// Define game states
+const GameState = {
+    START: "START",
+    PLAYING: "PLAYING",
+    GAME_OVER: "GAME_OVER"
+};
+let gameState = GameState.START;
+
+// Play button click event
+document.getElementById("playButton").addEventListener("click", () => {
+    if (gameState === GameState.START || gameState === GameState.GAME_OVER) {
+        startGame();
+    }
+});
+
+// Function to start the game
+function startGame() {
+    gameState = GameState.PLAYING;
+    document.getElementById("overlay").style.display = "none";
+    // Additional initialization or setup code for starting the game
+}
+
+// Game loop
+function gameLoop() {
+    // Only update and render game elements if in playing state
+    if (gameState === GameState.PLAYING) {
+        // Update game logic
+        // Render game elements
+    }
+
+    requestAnimationFrame(gameLoop);
+}
+
+gameLoop();
+
 // Define canvas and context
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
